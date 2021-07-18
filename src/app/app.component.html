@@ -1,4 +1,20 @@
 <hello name="{{ name }}"></hello>
 <p>
-  Start editing to see some magic happen :)
+  Dynamic columns with angular loop.
 </p>
+<table>
+  <thead>
+    <tr *ngIf="dataList[0]">
+      <th *ngFor="let h of getKeys(dataList[0])">
+        {{h}}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of dataList;">
+      <td *ngFor="let key of getKeys(row)">
+        {{row[key]}}
+      </td>
+    </tr>
+  </tbody>
+</table>
